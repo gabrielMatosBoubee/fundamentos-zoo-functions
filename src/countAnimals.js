@@ -16,9 +16,11 @@ function countAnimals(animal) {
     }, {});
     return resultado;
   }
-  if (typeof animal === 'object') {
+  if (!animal.sex) {
     return vericaResidents(animal).length;
-  }
+  } const resident = vericaResidents(animal);
+  const test = resident.filter((element) => element.sex === animal.sex);
+  return test.length;
 }
 
 module.exports = countAnimals;
