@@ -26,7 +26,7 @@ describe('Testes da função getOpeningHours', () => {
   test('testar se ao receber um formato de hora maior que 12 como paramentro da erro', () => {
     expect(getOpeningHours('Tuesday', '13:00-AM')).toThrow('The hour must be between 0 and 12');
   });
-//   test('testar se ao receber um formato de minutos maior que 59 como paramentro da erro', () => {
-//     expect(getOpeningHours('Tuesday', '0N:00-AM')).toThrow(`The ${dataHour} should represent a number`);
-//   });
+  test('testar se ao receber um formato de minutos maior que 59 como paramentro da erro', () => {
+    expect(getOpeningHours('Tuesday', '0N:00-AM')).toThrow('The 0N:00-AM should represent a number');
+  });
 });
