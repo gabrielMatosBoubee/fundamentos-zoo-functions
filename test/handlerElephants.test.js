@@ -22,4 +22,10 @@ describe('Testes da função HandlerElephants', () => {
   test('Testar se ao receber availability retorna a relação dos dias que é possivel visitar os elefantes', () => {
     expect(handlerElephants('availability')).toEqual(['Friday', 'Saturday', 'Sunday', 'Tuesday']);
   });
+  test('Testar se ao receber um parametro diferente de uma string retorna "Parâmetro inválido, é necessário uma string"', () => {
+    expect(handlerElephants(2)).toEqual('Parâmetro inválido, é necessário uma string');
+  });
+  test('Testar se ao receber um parametro que é string mas não é valido retorna "null"', () => {
+    expect(handlerElephants('test')).toEqual(null);
+  });
 });
