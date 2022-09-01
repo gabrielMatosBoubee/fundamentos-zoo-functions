@@ -22,19 +22,19 @@ describe('Testes da função getOpeningHours', () => {
     expect(getOpeningHours('Wednesday', '09:00-PM')).toBe(zoologicoFechado);
   });
   test('testar se ao receber um dia diferente como paramentro da erro', () => {
-    expect(() => getOpeningHours('Tuday', '09:00-AM')).toThrow(/^The day must be valid. Example: Monday$/);
+    expect(() => getOpeningHours('Tuday', '09:00-AM')).toThrow('The day must be valid. Example: Monday');
   });
   test('testar se ao receber um formato de hora maior que 12 como paramentro da erro', () => {
-    expect(() => getOpeningHours('Tuesday', '13:00-AM')).toThrow(/^The hour must be between 0 and 12$/);
+    expect(() => getOpeningHours('Tuesday', '13:00-AM')).toThrow('The hour must be between 0 and 12');
   });
   test('testar se ao receber um formato de minutos maior que 59 como paramentro da erro', () => {
-    expect(() => getOpeningHours('Tuesday', '00:60-AM')).toThrow(/^The minutes must be between 0 and 59$/);
+    expect(() => getOpeningHours('Tuesday', '00:60-AM')).toThrow('The minutes must be between 0 and 59');
   });
   test('testar se ao receber um formato hora escrito como string como paramentro da erro', () => {
-    expect(() => getOpeningHours('Tuesday', '0N:00-AM')).toThrow(/^The hour should represent a number$/);
+    expect(() => getOpeningHours('Tuesday', '0N:00-AM')).toThrow('The hour should represent a number');
   });
   test('testar se ao receber um formato de horario diferente de AM ou PM como paramentro da erro', () => {
-    expect(() => getOpeningHours('Tuesday', '13:00-Al')).toThrow(/^The abbreviation must be 'AM' or 'PM'$/);
+    expect(() => getOpeningHours('Tuesday', '13:00-Al')).toThrow('The abbreviation must be \'AM\' or \'PM\'');
   });
   // test('testar se ao receber "Friday" e "09:00-AM" como parametro retorna "The zoo is closed"', () => {
   //   expect(getOpeningHours('Friday', '12:00-PM')).toBe(zoologicoFechado);
